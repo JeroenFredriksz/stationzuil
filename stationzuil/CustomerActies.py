@@ -6,7 +6,7 @@ import StationsManager
 
 def voerGegevensInGebruiker():
     randomStation = StationsManager.RandomStation()
-    tijd = datetime.datetime.now()
+    tijd = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
     while True:
         naam = input("Wat is uw naam?\n"

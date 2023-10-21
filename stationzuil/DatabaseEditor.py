@@ -6,3 +6,12 @@ def inputDatabase(bericht, datumTijd, naam, station):
     database.close()
     # return true voor feedback of dit gelukt is of niet
     return True
+
+
+def readDatabase():
+    database = open("database.csv", "r")
+
+    fileLines = database.readlines()
+    database.close()
+
+    return fileLines
