@@ -5,7 +5,7 @@ from stationzuil.util import StationsManager
 
 
 def voerGegevensInGebruiker():
-    randomStation = StationsManager.RandomStation()
+    randomStation = StationsManager.randomStation()
     tijd = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
     while True:

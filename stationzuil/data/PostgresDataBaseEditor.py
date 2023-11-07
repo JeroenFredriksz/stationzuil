@@ -13,11 +13,20 @@ def inputGekeurdBericht(goedgekeurd, auteur, bericht, creeerdatum, moderatorNaam
     connection.commit()
 
 def getLaatste5Berichten():
-    selectString = f'SELECT * FROM gekeurdbericht ORDER BY keurdatum DESC LIMIT 5;'
+    selectString = f'SELECT * FROM gekeurdbericht where goedgekeurd = true ORDER BY keurdatum DESC LIMIT 5;'
     cursor.execute(selectString)
     return cursor.fetchall()
 
 def getFaciliteitenStationService(stationnaam):
-    select = f"SELECT * from station_service where station_city = '{stationnaam}'"
-    cursor.execute(select)
+    selectStatement = f"SELECT * from station_service where station_city = '{stationnaam}'"
+    cursor.execute(selectStatement)
+    output = cursor.fetchall()
+    return output[0]
+
+def getAlleStationNamen():
+    selectStatement = f"select * from station"
+    cursor.execute(selectStatement)
     return cursor.fetchall()
+
+
+print(getLaatste5Berichten())
