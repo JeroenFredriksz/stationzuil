@@ -1,5 +1,8 @@
+
+path = "C:/Users/Jeroen/PycharmProjects/stationzuil5/stationzuil/data/database.csv"
+
 def inputDatabase(bericht, datumTijd, naam, station):
-    database = open("database.csv", "a")
+    database = open(path, "a")
 
     database.write(f"{bericht}/{datumTijd}/{naam}/{station}\n")
 
@@ -9,7 +12,7 @@ def inputDatabase(bericht, datumTijd, naam, station):
 
 
 def readDatabase():
-    database = open("database.csv", "r")
+    database = open(path, "r")
 
     fileLines = database.readlines()
     database.close()
@@ -18,7 +21,7 @@ def readDatabase():
 
 
 def clear():
-    database = open("database.csv", "r+")
+    database = open(path, "r+")
     database.truncate()
 
     database.close()

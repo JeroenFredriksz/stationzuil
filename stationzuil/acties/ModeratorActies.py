@@ -1,4 +1,5 @@
 from stationzuil.data import FileDatabaseEditor
+from stationzuil.data import PostgresDataBaseEditor
 
 
 def modereerBerichten():
@@ -24,8 +25,13 @@ def modereerBerichten():
         # while loop zodat als moderator geen ja of nee opgeeft, het programma niet doorgaat met een ongeldig antwoord
         while True:
             keuring = input(": ").lower()
-            if keuring == "ja":
-
+            if keuring == "ja" or keuring == "nee":
+                goedgekeurd = None
+                if(keuring == "ja"):
+                    goedgekeurd = True
+                else:
+                    goedgekeurd = False
+                PostgresDataBaseEditor.inputGekeurdBericht(goedgekeurd, naam, bericht, datum, moderatorNaam, station)
                 # TODO: ga naar TRUE versie van opslaan
                 break
             else:
@@ -34,8 +40,6 @@ def modereerBerichten():
     FileDatabaseEditor.clear()
 
 
-def berichtGoedGekeurd(naam, datum, bericht, station):
-    return
 
 
 modereerBerichten()
