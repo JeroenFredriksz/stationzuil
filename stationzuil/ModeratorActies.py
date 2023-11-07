@@ -1,4 +1,4 @@
-import DatabaseEditor
+from stationzuil.data import FileDatabaseEditor
 
 
 def modereerBerichten():
@@ -7,7 +7,7 @@ def modereerBerichten():
     moderatorEmail = input("Wat is uw email?\n"
                            ": ")
 
-    lines = DatabaseEditor.readDatabase()
+    lines = FileDatabaseEditor.readDatabase()
 
     for line in lines:
         splittedLines = line.split("/")
@@ -24,11 +24,18 @@ def modereerBerichten():
         # while loop zodat als moderator geen ja of nee opgeeft, het programma niet doorgaat met een ongeldig antwoord
         while True:
             keuring = input(": ").lower()
-            if keuring == "ja" or keuring == "nee":
+            if keuring == "ja":
+
+                # TODO: ga naar TRUE versie van opslaan
                 break
             else:
                 print('Dit is geen geldige invoer! Voer in "Ja" of "Nee"')
-#             zo nee, gaat het terug naar vragen om keuring input
+    #             zo nee, gaat het terug naar vragen om keuring input
+    FileDatabaseEditor.clear()
+
+
+def berichtGoedGekeurd(naam, datum, bericht, station):
+    return
 
 
 modereerBerichten()

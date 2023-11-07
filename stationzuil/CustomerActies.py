@@ -1,7 +1,6 @@
-import DatabaseEditor
 import datetime
 
-import StationsManager
+from stationzuil.util import StationsManager
 
 
 def voerGegevensInGebruiker():

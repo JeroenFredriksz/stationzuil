@@ -15,3 +15,11 @@ def readDatabase():
     database.close()
 
     return fileLines
+
+
+def clear():
+    database = open("database.csv", "r+")
+    database.truncate()
+
+    database.close()
+
